@@ -12,6 +12,12 @@ for (i in 2:nrow(npp)) {
   }
 }
 
+## Filter out non-standard stations
+npp = npp[grepl('GAK', npp$Station) | grepl('MID', npp$Station) | grepl('KOD', npp$Station), ]
+npp$Station = gsub('\\s+', '', npp$Station)
+npp$Station = gsub('-', '', npp$Station)
+
+
 # Fix excel datetime stamps
 npp$Start.Date = TheSource::conv.time.excel(npp$Start.Date, tz = 'US/Anchorage')
 
@@ -82,7 +88,8 @@ plot(log10(npp$pred),
      xaxt = 'n',
      yaxt = 'n',
      xlab = 'Predicted NPP (mg C m-3 d-1)',
-     ylab = 'Measured NPP (mg C m-3 d-1)')
+     ylab = 'Measured NPP (mg C m-3 d-1)',
+     pch = 16)
 
 add.log.axis(1, grid.major = T)
 add.log.axis(2, grid.major = T)
