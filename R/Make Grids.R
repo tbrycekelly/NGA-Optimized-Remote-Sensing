@@ -50,4 +50,10 @@ plot.section(grid,
              zlim = c(0,200))
 
 
+saveRDS(grid, 'Data/Grid.RDS')
+
+
+tmp = array(grid$grid$temp, dim = c(length(times), length(depths)))
+
+
 
