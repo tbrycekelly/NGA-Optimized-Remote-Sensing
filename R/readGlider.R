@@ -20,12 +20,12 @@ g191 <- g191[!is.na(g191$Depth),]
 g191 <- g191[!is.na(g191$Lat),]
 
 # (2) modify data for xlsx convert | conversion below
-glider <- data.frame(as.numeric(g191$Lon))
-glider$Lat <- as.numeric(g191$Lat)
-glider$Depth <- as.numeric(g191$Depth)
-glider$Chl <- as.numeric(g191$`Chl-a`)
-glider$temp <- as.numeric(g191$Temperature)
-glider$PAR <- as.numeric(g191$PAR)
+glider <- data.frame(Lon = as.numeric(g191$Lon),
+                     Lat = as.numeric(g191$Lat),
+                     Depth = as.numeric(g191$Depth),
+                     Chl = as.numeric(g191$`Chl-a`),
+                     temp = as.numeric(g191$Temperature),
+                     PAR = as.numeric(g191$PAR))
 glider$date <-  as.Date(with(g191,paste(g191$Year, g191$Month, g191$Day,sep = "-")),
                       "%Y-%m-%d")
 glider$NPP <- NA
