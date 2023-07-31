@@ -29,6 +29,7 @@ glider = data.frame(Lon = glider$lon,
 ## Filter
 glider = glider[!is.na(glider$Lon),]
 glider = gldier[!is.na(glider$datetime),]
+glider$PAR <- glider$PAR *(86400/10^6) ## PAR unit conversion
 
 
 ## Save as both xlsx (for viewing) and rds (for reloading.)
