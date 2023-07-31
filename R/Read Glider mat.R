@@ -30,6 +30,7 @@ glider = data.frame(Lon = glider$lon,
 glider = glider[!is.na(glider$Lon),]
 glider = gldier[!is.na(glider$datetime),]
 
+
 ## Save as both xlsx (for viewing) and rds (for reloading.)
 openxlsx::write.xlsx(glider, 'Data/Glider/Full Data.xlsx')
 saveRDS(glider, 'Data/Glider/Full Data.rds')
