@@ -43,4 +43,5 @@ g191mod <-read.xlsx('C:/Users/lenovo/Desktop/xw/VGPMproject/g191mod.xlsx', start
 g191mod <- g191mod[,-1]      # see L32
 colnames(g191mod) <- c('Longitude','Latitude','Depth','Chl','Temp','PAR','Dates')
 g191mod$Dates <- TheSource::conv.time.excel(g191mod$Dates,)
+g191mod$PAR <- g191mod$PAR * (86400/10^6)   # PAR unit conversion
 g191mod$preNPP <- NA  # preNPP = predicted NPP (if wanted)
