@@ -6,7 +6,7 @@
 library(TheSource)
 library(reshape2)
 
-glider = readRDS('C:/Users/lenovo/Desktop/xw/GOAdata/Full Data.rds')
+glider = readRDS('directory.rds')
 
 times = seq(min(glider$datetime), make.time(2023, 5, 7), by = '6 hour')
 dt = 6
