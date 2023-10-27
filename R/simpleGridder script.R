@@ -22,8 +22,8 @@ grid = interpData(grid)
 
 
 ## Step 3
-plotGrid(grid, 'salinity', pal = pals::inferno(16))
-plotGrid(grid, 'temperature', pal = pals::inferno(16), ylim = c(100,0))
+plotGrid(grid, 'salinity', pal = pals::ocean.haline(16), ylim = c(100,0))
+plotGrid(grid, 'temperature', pal = pals::ocean.thermal(16), ylim = c(100,0))
 
 points(grid$data$x, grid$data$y, pch ='.')
 
