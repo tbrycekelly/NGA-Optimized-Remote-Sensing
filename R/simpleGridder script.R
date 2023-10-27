@@ -13,7 +13,7 @@ dpi = openxlsx::read.xlsx('Data/DPI/Transect 2022-07-12 075941.xlsx')
 summary(dpi$Depth)
 
 
-grid = buildGrid(xlim = c(0,56), ylim = c(0,100), nx = 100, ny = 100, x.factor = 1, y.factor = 1)
+grid = buildGrid(xlim = c(0,56), ylim = c(0,100), nx = 100, ny = 100)
 grid = setGridder(grid, neighborhood = 10)
 grid = appendData(grid, dpi$Distance, dpi$Depth, dpi$Temperature, 'temperature')
 grid = appendData(grid, dpi$Distance, dpi$Depth, dpi$Salinity, 'salinity')
