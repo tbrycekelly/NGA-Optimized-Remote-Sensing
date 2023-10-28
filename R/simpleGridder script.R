@@ -13,7 +13,7 @@ dpi = openxlsx::read.xlsx('Data/DPI/Transect 2022-07-12 075941.xlsx')
 summary(dpi$Depth)
 
 
-grid = buildGrid(xlim = c(0,56), ylim = c(0,100), nx = 100, ny = 100)
+grid = buildGrid(xlim = c(0,56), ylim = c(0,100), nx = 400, ny = 100)
 grid = setGridder(grid, neighborhood = 10)
 grid = appendData(grid, dpi$Distance, dpi$Depth, dpi$Temperature, 'temperature')
 grid = appendData(grid, dpi$Distance, dpi$Depth, dpi$Salinity, 'salinity')
@@ -23,9 +23,14 @@ grid = interpData(grid)
 
 ## Step 3
 plotGrid(grid, 'salinity', pal = pals::ocean.haline(16), ylim = c(100,0))
-plotGrid(grid, 'temperature', pal = pals::ocean.thermal(16), ylim = c(100,0))
+
+
+# Fancy plot:
+par(plt = c(0.1,0.9,0.2,0.9))
+plotGrid(grid, 'temperature', pal = pals::ocean.thermal(10), ylim = c(100,0), zlim = c(6,16))
 
 points(grid$data$x, grid$data$y, pch ='.')
+colorbar(pals::ocean.thermal(10), zlim = c(6,16))
 
 
 #############
